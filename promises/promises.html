@@ -27,7 +27,11 @@
 
       getDummyData('https://jsonplaceholder.typicode.com/users')
         .then((data) => {
-          console.log(data);
+          let response = data;
+          console.log(response.data);
+          response.data.forEach(function (item, index) {
+            console.log(item, index);
+          });
         })
         .catch((error) => {
           console.log(error);
