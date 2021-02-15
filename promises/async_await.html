@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Promises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script type="text/javascript">
+      const makeRequest = (location) => {
+        return new Promise((resolve, reject) => {
+          console.log(`Making request to ${location}`);
+          if (location === 'Google') {
+            resolve('Google says Hi...');
+          } else {
+            reject('We can only take to google...');
+          }
+        });
+      };
+
+      const processRequest = (response) => {
+        return new Promise((resolve, reject) => {
+          console.log('processing response');
+          resolve(`Extra Info + ${response}`);
+        });
+      };
+
+      // makeRequest('Google1')
+      //   .then((response) => {
+      //     console.log('Response received');
+      //     return processRequest(response);
+      //   })
+      //   .then((processedRequest) => {
+      //     console.log(processedRequest);
+      //   });
+
+      async function doWork() {
+        try {
+          const response = await makeRequest('Google1');
+          console.log('Response Received');
+          const processedRes = await processRequest(response);
+          console.log(processedRes);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      doWork();
+    </script>
+  </head>
+
+  <body></body>
+</html>
