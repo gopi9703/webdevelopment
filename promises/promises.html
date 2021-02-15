@@ -14,20 +14,17 @@
       //     .catch((err) => reject(err));
       // });
 
-      function getRandomDelayedNumber(max = 10, expected = 5, delay = 1000) {
+      function getRandomDelayedNumber(max = 10, expected = 5) {
         return new Promise((resolve, reject) => {
           const number = Math.floor(Math.random() * max);
 
-          setTimeout(() => {
-            number > expected
-              ? resolve(number)
-              : reject(new Error('lower than expected number'));
-            delay;
-          });
+          number > expected
+            ? resolve(number)
+            : reject(new Error('lower than expected number'));
         });
       }
 
-      getRandomDelayedNumber(100, 75, 2500)
+      getRandomDelayedNumber(100, 5)
         .then((number) => console.log(number))
         .catch((error) => console.error(error));
 
