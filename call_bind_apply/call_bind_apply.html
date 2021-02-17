@@ -1,0 +1,145 @@
+<html>
+  <head>
+    <title>Promises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script type="text/javascript">
+      let name = {
+        firstName: 'gopi',
+        lastName: 'Krishna',
+        // printFullName: function () {
+        //   console.log(this.firstName + ' ' + this.lastName);
+        // },
+      };
+      let name2 = {
+        firstName: 'sachin',
+        lastName: 'Tendulkar',
+        // printFullName: function () {
+        //   console.log(this.firstName + ' ' + this.lastName);
+        // },
+      };
+
+      let printFullName = function (homeTown, State) {
+        console.log(
+          this.firstName + ' ' + this.lastName + ' ' + homeTown + ' ' + State
+        );
+      };
+
+      printFullName.call(name, 'Hyderabad', 'Telangana');
+      printFullName.apply(name, ['Newyork', 'USA']);
+      let printMyName = printFullName.bind(name2, 'Hyderabad', 'Telangana');
+      printMyName();
+
+      let WebsiteRender = {
+        updatePageView: function () {
+          for (i = 0; i < arguments.length; i++) {
+            this.pageViewNum += arguments[i];
+          }
+          return this.pageViewNum;
+        },
+      };
+
+      var profilePage = {
+        name: 'Gopi Krishna',
+        pageViewNum: 0,
+      };
+
+      console.log(
+        WebsiteRender.updatePageView.call(profilePage, 1, 2, 3, 4, 5)
+      );
+
+      console.log(
+        WebsiteRender.updatePageView.apply(profilePage, [1, 2, 3, 4, 5, 8])
+      );
+
+      let t =  WebsiteRender.updatePageView.bind(profilePage, 1, 2, 3, 4, 5, 8)
+
+      console.log(t()
+       
+      );
+
+      // name.printFullName();
+      // name2.printFullName();
+    </script>
+  </head>
+
+  <body>
+    <p>
+      Bind: bind method allow to object borrow method from another object with
+      out making copy of that object method, this is known as borrowing in
+      javascript.
+
+      <pre>
+        let name = {
+          firstName: 'gopi',
+          lastName: 'Krishna',
+         
+        };
+        let name2 = {
+          firstName: 'sachin',
+          lastName: 'Tendulkar',
+         
+        };
+  
+        let printFullName = function (homeTown, State) {
+          console.log(
+            this.firstName + ' ' + this.lastName + ' ' + homeTown + ' ' + State
+          );
+        };
+  
+     
+        let printMyName = printFullName.bind(name2, 'Hyderabad', 'Telangana');
+      </pre>
+    </p>
+    <p>
+      Call : The call method calls a function with the given THIS value and arguments provided as parameters. 
+    </p>
+      <pre>
+
+        let WebsiteRender = {
+          updatePageView: function () {
+            for (i = 0; i < arguments.length; i++) {
+              this.pageViewNum += arguments[i];
+            }
+            return this.pageViewNum;
+          },
+        };
+  
+        var profilePage = {
+          name: 'Gopi Krishna',
+          pageViewNum: 0,
+        };
+  
+        console.log(
+          WebsiteRender.updatePageView.call(profilePage, 1, 2, 3, 4, 5)
+        );
+  
+       
+      </pre>
+    <p>
+      Apply : The apply method calls a function with the given THIS value and arguments provided as array. 
+    </p>
+    <pre>
+
+      let WebsiteRender = {
+        updatePageView: function () {
+          for (i = 0; i < arguments.length; i++) {
+            this.pageViewNum += arguments[i];
+          }
+          return this.pageViewNum;
+        },
+      };
+
+      var profilePage = {
+        name: 'Gopi Krishna',
+        pageViewNum: 0,
+      };
+
+      console.log(
+        WebsiteRender.updatePageView.call(profilePage, [1, 2, 3, 4, 5])
+      );
+
+     
+    </pre>
+  </body>
+</html>
