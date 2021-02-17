@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>Promises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script type="text/javascript">
+      // destructring
+      const sumAndMultiply = (a, b) => {
+        return [a + b, a * b];
+      };
+
+      const [two, one, division = '1'] = sumAndMultiply(2, 3);
+      console.log(two, one, division);
+
+      const person = {
+        name: 'gopi',
+        age: '29',
+        FavFood: 'Dal',
+        //favouriteFood: 'sambar',
+        address: {
+          street: 'NY',
+          city: 'London',
+        },
+      };
+
+      // const { name: firstName, ...rest } = person;
+      const {
+        name: firstName,
+        address: { city },
+      } = person;
+      console.log(firstName, city);
+
+      const PrinUser = ({ name, age, FavFood }) => {
+        console.log(
+          `Username is ${name}. Age is ${age}. Favourite Food is ${FavFood}`
+        );
+      };
+      PrinUser(person);
+
+      // spread and rest operators
+      const list1 = [1, 2, 3, 6];
+      const list2 = [4, 5];
+      const list3 = [1, 1, 4, 4, 2, 2, 2, 3];
+
+      const mergedList = [...list1, ...list2];
+      console.log('unique values from Array using srpead', [...new Set(list3)]);
+      console.log('Merged List: ', mergedList);
+
+      const obj1 = { a: 1, b: 2 };
+      const obj2 = { c: 3 };
+
+      const mergedObj = { ...obj1, ...obj2 };
+
+      console.log('Merged Object: ', mergedObj);
+
+      const weird1 = { ...obj1, ...list2 };
+      console.log('Merged list as object', weird1);
+
+      try {
+        const weird2 = [...obj1, ...list1];
+        console.log('Merged list as object', weird2);
+      } catch (e) {
+        console.error(
+          'Failed merging an object to a list, reason: ',
+          e.message
+        );
+      }
+    </script>
+  </head>
+
+  <body></body>
+</html>
