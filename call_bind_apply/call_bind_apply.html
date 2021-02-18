@@ -4,6 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <script type="text/javascript">
+
+      Function.prototype.myBind = function(...args) {
+        let fn = this;
+        let params = args.slice(1);
+        return function(...arg2) {
+          fn.apply(args[0], [...params, ...arg2])
+        }
+      }      
+
       let name = {
         firstName: 'gopi',
         lastName: 'Krishna',
@@ -52,9 +61,10 @@
         WebsiteRender.updatePageView.apply(profilePage, [1, 2, 3, 4, 5, 8])
       );
 
-      let t =  WebsiteRender.updatePageView.bind(profilePage, 1, 2, 3, 4, 5, 8)
+      let t =  WebsiteRender.updatePageView.bind(profilePage, 1, 2, 3, 4, 5, 8);
+      let t1 =  printFullName.myBind(name2, 1, 5);
 
-      console.log(t()
+      console.log(t1()
        
       );
 
