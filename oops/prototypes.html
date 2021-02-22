@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Promises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script type="text/javascript">
+      function book(title, author, year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        // this.getSummary = function () {
+        //   return `${this.title}  was written by ${this.author} in the year ${this.year}`;
+        // };
+      }
+
+      book.prototype.getSummary = function () {
+        return `${this.title}  was written by ${this.author} in the year ${this.year}`;
+      };
+
+      book.prototype.getAge = function () {
+        return `${this.title} is ${this.year} years old`;
+      };
+
+      book.prototype.revised = function (newYear) {
+        this.year = newYear;
+        this.revised = true;
+      };
+
+      const book1 = new book('JS ninja', 'john dae', '2016');
+      console.log(book1);
+      console.log(book1.getAge());
+      book1.revised('2021');
+      console.log(book1);
+    </script>
+  </head>
+
+  <body></body>
+</html>

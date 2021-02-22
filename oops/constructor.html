@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Promises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script type="text/javascript">
+      // Factory function
+      function book(title, author, year) {
+        return {
+          title,
+          author,
+          year,
+          getSummary: function () {
+            return `${title}  was written by ${author} in the year ${year}`;
+          },
+        };
+      }
+
+      // constructor function
+      function Book(title, author, year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.getSummary = function () {
+          return `${this.title}  was written by ${this.author} in the year ${this.year}`;
+        };
+      }
+      const book1 = new Book('JS ninja', 'john dae', '2021');
+      const book2 = book('JS ninja', 'john dae', '2021');
+
+      console.log(book1);
+      console.log(book2);
+    </script>
+  </head>
+
+  <body></body>
+</html>

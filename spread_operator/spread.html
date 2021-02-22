@@ -19,7 +19,7 @@
         //favouriteFood: 'sambar',
         address: {
           street: 'NY',
-          city: 'London',
+          city: 'Hyderabad',
         },
       };
 
@@ -41,6 +41,10 @@
       const list1 = [1, 2, 3, 6];
       const list2 = [4, 5];
       const list3 = [1, 1, 4, 4, 2, 2, 2, 3];
+      // const list4 = [...list1];
+      // list4.push(7);
+      // console.log(list1);
+      // console.log(list4);
 
       const mergedList = [...list1, ...list2];
       console.log('unique values from Array using srpead', [...new Set(list3)]);
@@ -65,6 +69,36 @@
           e.message
         );
       }
+
+      // function Test() {
+      //   console.log(this);
+
+      let obj = {
+        mission: 'hello world',
+        describe: function () {
+          console.log(this.mission);
+        },
+      };
+      //return obj;
+      //}
+
+      obj.describe();
+
+      // function Testing() {
+      //   this.firstName = firstName;
+      //   //this.hobbies = hobbies;
+
+      //   this.listHobbies = () => {
+      //     // return this.hobbies.map(
+      //     //   function (hobby) {
+      //     console.log(this.firstName);
+      //     //   }.bind(this)
+      //     // );
+      //   };
+      // }
+
+      // let test = new Testing();
+      // test.listHobbies();
     </script>
   </head>
 
