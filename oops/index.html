@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Oops Add cards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Courgette"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="./css/all.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-11 col-lg-6 my-3">
+          <h3 class="text-capitalize">Add Cards</h3>
+          <button class="btn text-capitalize my-2 show-btn" id="addBtn">
+            add Cards
+          </button>
+
+          <div class="card card-body my-3 card-form">
+            <a href="javascript:void(0)" class="close-btn mt-0"> &#10005; </a>
+            <div class="feedback alert w-75 text-capitalize">
+              customer feedback
+            </div>
+            <form id="question-form">
+              <!-- single input -->
+              <h5 class="text-capitalize">question</h5>
+              <div class="form-group">
+                <textarea class="w-100" id="question-input" rows="3"></textarea>
+              </div>
+              <!-- end of single input -->
+              <!-- single input -->
+              <h5 class="text-capitalize">answer</h5>
+              <div class="form-group">
+                <textarea class="w-100" id="answer-input" rows="3"></textarea>
+              </div>
+              <!-- end of single input -->
+              <button type="submit" class="btn submitBtn text-capitalize w-50">
+                save
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row px-2" id="questions-list"></div>
+    </div>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
