@@ -72,7 +72,14 @@ export default function App() {
 
   useEffect( () => {
     console.log('[App.js] Use Effect');
-  });
+    const timer = setTimeout(() => {
+      alert("hello");
+    }, 1000);
+    return () => {
+        clearTimeout(timer);
+       console.log('clean up work is done');
+      }
+  }, []);
 
 
 
@@ -92,11 +99,11 @@ const deletePerson = (personIndex) => {
   SetPersonState({person : person})
 }
 
-const randomNumber = Math.random();
+// const randomNumber = Math.random();
 
-if(randomNumber > .5) {
-  throw new Error('some thing went wrong');
-}
+// if(randomNumber > .5) {
+//   throw new Error('some thing went wrong');
+// }
 
 
   return (
@@ -105,9 +112,9 @@ if(randomNumber > .5) {
       <p>This is really working!</p>
       <button onClick={updateStateMethod}>Update</button>
       {personState.person.map((person, index) => {
-      return <ErrorBoundary key={person.name}>
-       <Person name={person.name} age={person.age}  click={() => deletePerson(index)} />
-      </ErrorBoundary>
+      // return <ErrorBoundary key={person.name}>
+       return <Person name={person.name} age={person.age} key={person.name}  click={() => deletePerson(index)} />
+      {/* </ErrorBoundary> */}
 }) }
    
     </div>
