@@ -22,6 +22,26 @@ import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 //   })
 // }
 
+//  componentWillMount() {
+//       console.log('Component will mount!')
+//    }
+//   componentDidMount() {
+//       console.log('Component did mount!')
+//       this.getList();
+//    }
+
+
+// shouldComponentUpdate(nextProps, nextState){
+//          return this.state.list!==nextState.list;
+         //   return true;
+//         }
+//        componentWillUpdate(nextProps, nextState) {
+//           console.log('Component will update!');
+//        }
+//        componentDidUpdate(prevProps, prevState) {
+//           console.log('Component did update!')
+//        }
+
 //   render() {
   
 //     return (
