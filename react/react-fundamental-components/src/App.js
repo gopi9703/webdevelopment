@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import './App.css';
 import Person from './Person/Person';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
@@ -70,15 +70,21 @@ export default function App() {
     ]
   });
 
-  // const updateStateMethod = () => {
-  //   SetPersonState({
-  //     person: [
-  //       { name: 'max', age: 31 },
-  //       { name: 'max1', age: 32 },
-  //       { name: 'max2', age: 33 }
-  //     ]
-  //   });
-  // };
+  useEffect( () => {
+    console.log('[App.js] Use Effect');
+  });
+
+
+
+  const updateStateMethod = () => {
+    SetPersonState({
+      person: [
+        { name: 'max', age: 31 },
+        { name: 'max1', age: 32 },
+        { name: 'max2', age: 33 }
+      ]
+    });
+  };
 
 const deletePerson = (personIndex) => {
   const person = [...personState.person];
@@ -97,7 +103,7 @@ if(randomNumber > .5) {
     <div className="App">
       <h1>Hi, I'm a React App</h1>
       <p>This is really working!</p>
-      <button >Update</button>
+      <button onClick={updateStateMethod}>Update</button>
       {personState.person.map((person, index) => {
       return <ErrorBoundary key={person.name}>
        <Person name={person.name} age={person.age}  click={() => deletePerson(index)} />
